@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Jan 19 08:59:21 MST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0152-5a9c-a3c5-000002ea5d58 
+Tue Jan 19 09:51:57 MST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0152-5acc-ce2c-000003109a30 
 on database directory /Users/michaelmontero/rssbus/connect/db/app_logs  with class loader WebappClassLoader
   context: 
   delegate: false
