@@ -1,0 +1,13 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="RestartFile" description="Restart an outgoing transmission for the specified file.">
+    <input  name="PortId"           desc="The id of the partner/port."   required="true"/>
+    <input  name="Filename"         desc="The file name."                required="true"/>
+    <input  name="etag"             desc="The ETag."                     required='true'/>
+  </rsb:info>
+
+  <rsb:push op="portRestartFile"/>
+  
+</rsb:script>

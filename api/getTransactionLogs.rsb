@@ -1,0 +1,20 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="GetTransactionLogs" description="Retrieves the transaction details of the application.">
+    <input name="PortId"          desc="The id of the port."  required="true"/>
+    <input name="MessageId"       desc="The message Id."      required="true"/>
+    <input name="Direction"       desc="The direction of the transaction."                values="Send,Receive" required="true"/>
+    <input name="IncludeContent"  desc="Whether to return the content of the log file."   values="True,False"   def='False'/>
+    <output name="TimeCreated"    desc="The time the log file was created."/>
+    <output name="Type"           desc="The type of the log file." />
+    <output name="File"           desc="The name of the log file." />
+    <output name="Path"           desc="The path of the log file." />
+    <output name="Content"        desc="The content of the log file." />
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portGetTransactionDetails" />
+  </rsb:script>
+</rsb:script>

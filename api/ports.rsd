@@ -1,0 +1,28 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="Ports" description="Retrieves all ports.">
+    <attr name="PortId"        type="string"   key="true"    description="The id of the port."/>
+    <attr name="PortType"      type="string"                 description="The type of the port."/>
+
+    <input name="*"                          description="The port's properties."/>
+    <output name="*"                         description="The port's properties."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="portGetPorts" />
+  </rsb:script>
+
+  <rsb:script method="POST">
+    <rsb:push op="portCreatePort" />
+  </rsb:script>
+
+  <rsb:script method="PUT,MERGE,PATCH">
+    <rsb:push op="portSetPort" />
+  </rsb:script>
+  
+  <rsb:script method="DELETE">
+    <rsb:push op="portDeletePort" />
+  </rsb:script>
+</rsb:script>

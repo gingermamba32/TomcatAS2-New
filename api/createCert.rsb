@@ -1,0 +1,29 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="CreateCertificate" description="Create the public/private certificate key pair.">
+    <input  name="Filename"           desc="The file name." required="true" />
+    <input  name="CommonName"         desc="The common name." required="true" />
+    <input  name="Serialnumber"       desc="The serial number." required="true" />
+    <input  name="Password"           desc="The password." required="true" />
+    <input  name="Country"            desc="The country." />
+    <input  name="Email"              desc="The email." />
+    <input  name="Expiration"         desc="The expiration (in years)." default="1" />
+    <input  name="KeySize"            desc="The key size."             default="1024"   values="512, 1024, 2048" />
+    <input  name="SignatureAlgorithm" desc="The signature algorithm."  default="SHA256" />
+    <input  name="Locality"           desc="The locality." />
+    <input  name="Organization"       desc="The organization." />
+    <input  name="OrganizationalUnit" desc="The organizational unit." />
+    <input  name="State"              desc="The state." />
+    <output name='Name'               desc='The file name.'/>
+    <output name='Password'           desc='The password.'/>
+    <output name='Pubname'            desc='The public cert file name.'/>
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portCreateCertificate" />
+  </rsb:script>
+
+</rsb:script>
+

@@ -1,0 +1,40 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="Profile" desc="The configuration settings for your personal profile." properties="singleton">
+    <attr name="HeartbeatInterval"         type="int"         desc="The interval in which the application will perform scheduled tasks such as sending files to your trading partners." />
+    <attr name="NotifyEmail"               type="string"      desc="Send an email to the specified email addresses when an error is encountered." />
+    <attr name="NotifyEmailFrom"           type="string"      desc="The sender of notification emails." />
+    <attr name="NotifyEmailTo"             type="string"      desc="The receiver of notification emails." />
+    <attr name="NotifyEmailSubject"        type="string"      desc="The subject of notification emails." />
+    <attr name="NotifyEmailServer"         type="string"      desc="The host name or IP address of your SMTP server." />
+    <attr name="NotifyEmailUser"           type="string"      desc="The username to authenticate to your SMTP server." />
+    <attr name="NotifyEmailPassword"       type="string"      desc="The password to authenticate to your SMTP server." />
+    <attr name="NotifyEmailPort"           type="string"      desc="The port of your SMTP server." />
+    <attr name="NotifyEmailSSLMode"        type="string"      desc="The SSL mode of your SMTP server." />
+    <attr name="NotifyWindowsEvent"        type="bool"        desc="Write error messages to the Windows Application Event Log." />
+    <attr name="NotifyStopStart"           type="bool"        desc="Log when the application starts and stops in the event log." />
+    <attr name="ProxyType"                 type="string"      desc="The type of proxy to connect through." values="None, Tunnel, SOCKS4, SOCKS5, HTTP" />
+    <attr name="ProxyHost"                 type="string"      desc="The host name or IP address of the proxy." />
+    <attr name="ProxyPort"                 type="string"      desc="The port of your proxy." />
+    <attr name="ProxyUser"                 type="string"      desc="The username to use when authenticating to your proxy." />
+    <attr name="ProxyPassword"             type="string"      desc="The password to use when authenticating to your proxy." />
+    <attr name="ProxyAuthscheme"           type="string"      desc="The auth scheme to use when authenticating to your proxy." />
+
+    <input name="type"                           desc="The profile type."/>
+    <input name="*"                              desc="The profile properties."/>
+    <output name="*"                             desc="The profile properties."/>
+  </rsb:info>
+  
+  <rsb:script method="GET">
+    <rsb:push op="portGetProfile" />
+  </rsb:script>
+  
+  <rsb:script method="PUT,MERGE,PATCH">
+    <rsb:push op="portSetProfile" />
+  </rsb:script>
+  
+</rsb:script>
+
+

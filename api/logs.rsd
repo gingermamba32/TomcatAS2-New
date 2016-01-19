@@ -1,0 +1,18 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="ApplicationLogs" description="Retrieves application logs for the application.">
+    <attr name="Id"        key="true" xs:type="integer"  description="The Id of the log message."/>
+    <attr name="Type"                 xs:type="string"   description="The type of the log message."/>
+    <attr name="Timestamp"            xs:type="datetime" description="The time when the event occurred."/>
+    <attr name="Script"               xs:type="string"   description="The app causing the error."/>
+    <attr name="Message"              xs:type="string"   description="The message."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="appGetAppLogs" />
+  </rsb:script>
+</rsb:script>
+
+

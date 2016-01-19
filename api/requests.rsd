@@ -1,0 +1,20 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="RequestLogs" description="Retrieves request logs for the application.">
+    <attr name="Id"        key="true" xs:type="integer"  description="The Id of the request."/>
+    <attr name="Timestamp"            xs:type="datetime" description="The time when the request was handled."/>
+    <attr name="URL"                  xs:type="string"   description="The URL of the request."/>
+    <attr name="Method"               xs:type="string"   description="The HTTP method."/>
+    <attr name="User"                 xs:type="string"   description="The user."/>  
+    <attr name="RemoteIP"             xs:type="string"   description="The remote IP address from the request."/>
+    <attr name="Bytes"                xs:type="long"     description="The size of the request."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="appGetRequestLogs" />
+  </rsb:script>
+</rsb:script>
+
+

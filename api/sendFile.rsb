@@ -1,0 +1,21 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="SendFile" description="Sends a file for this port.">
+    <input  name="PortId"           desc="The id of the port." required="true"/>
+    <input  name="File"             desc="The file name."          required="true"/>
+    <input  name="Attachment#"      desc="The attachment file."/>
+    <input  name="FormatResult"     desc="Is format result."/>
+    <output name="MessageId"        desc="The message Id."/>
+  </rsb:info>
+
+  <rsb:call op="portSendFile">
+    <rsb:check value="[_input.formatresult | def('false')]">
+      <rsb:push op="~/src/getSendResult.rsb"/>
+      <rsb:else>
+        <rsb:push/>
+      </rsb:else>
+    </rsb:check>
+  </rsb:call>
+</rsb:script>

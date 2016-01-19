@@ -1,0 +1,31 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="Certificates" description="Retrieves and updates certificates.">
+    <attr name="Name"           type="string"   key="true"      desc="The name of the certificate file." />
+    <attr name="Data"           type="string"                 desc="The base-64 encoded contents of the certificate file." />
+    <attr name="Subject"        type="string"   readonly="true" desc="The certificate subject." />
+    <attr name="StoreType"      type="string"   readonly="true" desc="The store type." />
+    <attr name='ExpirationDate' type="string"   readonly="true" desc='The expiration date of the certificate.' />
+    <attr name='ExpirationDays' type="int"      readonly="true" desc='The days until the expiration date of the certificate.' />
+
+    <input name="Category"  desc="Set to All for list all certificates, Private for private certificates only, or Public for public certificates only." values="All, Private, Public" def="All"/>
+    <input name="Password"  desc="The certificate password." />
+    <input name="InputName" desc="The name of the form input when saving the certificate from a form."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="portGetCertificates" />
+  </rsb:script>
+  
+  <rsb:script method="POST">
+    <rsb:push op="portSetCertificate" />
+  </rsb:script>
+  
+  <rsb:script method="DELETE">
+    <rsb:push op="portDeleteCertificate" />
+  </rsb:script>
+</rsb:script>
+
+

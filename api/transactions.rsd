@@ -1,0 +1,27 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="Transactions" description="Retrieves the transaction logs of the application.">
+    <attr name="Id"            type="string"   key="true" desc="The id of the logs." />
+    <attr name="PortId"        type="string"              desc="The id of the port." />
+    <attr name="MessageId"     type="string"              desc="The message Id." />
+    <attr name="Direction"     type="string"              desc="The direction of the file transaction." values="Send,Receive"/>
+    <attr name="Status"        type="string"              desc="The status of the transaction." />
+    <attr name="Filename"      type="string"              desc="The name of the file being transferred." />
+    <attr name="FilePath"      type="string"              desc="The full path to the file that was sent or received." />
+    <attr name="FileSize"      type="int"                 desc="The size of the file." />
+    <attr name="Timestamp"     type="datetime"            desc="The time that the file was sent or received." />
+    <attr name="ETag"          type="string"              desc="The ETag for the file being transferred. This is only available when using AS2 Restart." />
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="portGetTransactionLogs" />
+  </rsb:script>
+
+  <rsb:script method="DELETE">
+    <rsb:push op="portDeleteTransactionLogs" />
+  </rsb:script>
+</rsb:script>
+
+

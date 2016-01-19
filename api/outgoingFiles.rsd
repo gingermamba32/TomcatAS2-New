@@ -1,0 +1,27 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="Administrators"/>
+  
+  <rsb:info title="OutgoingFiles" description="Retrieves the unsent files of the application.">
+    <attr name="PortId"        key="true" desc="The id of the port." />
+    <attr name="Filename"      key="true" desc="The name of the file." />
+    <attr name="TimeCreated"              desc="The time the file was created."/>
+    <attr name="FilePath"                 desc="The full path to the file." />
+    <attr name="FileSize"                 desc="The size of the log file." />
+    <attr name="FailedCount"              desc="The number of failed sending." />
+
+    <input name="InputName" desc="The name of the form input when uploading files from a form."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="portGetOutgoingFiles" />
+  </rsb:script>
+
+  <rsb:script method="POST">
+    <rsb:push op="portSetOutgoingFiles" />
+  </rsb:script>
+
+  <rsb:script method="DELETE">
+    <rsb:push op="portDeleteOutgoingFiles" />
+  </rsb:script>
+</rsb:script>

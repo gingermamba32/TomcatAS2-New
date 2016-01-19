@@ -1,0 +1,14 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="RefreshTransactions" description="Refresh the transaction log for the specified port.">
+    <input  name="PortId"           desc="The id of the port." required="true"/>
+    <output name="Result"           desc="The result of rebuilding the transactions cache."/>
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portRefreshTransactions"/>
+  </rsb:script>
+  
+</rsb:script>

@@ -1,0 +1,15 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title='ImportProfiles' description="This action will import partner/port profiles from previous versions of the application.">
+    <input name='DataDirectory'    desc='The data directory where the profiles are stored.' required='true' />
+    <input name='DuplicateAction'  desc='This setting determines how to handle profiles that already exist during an import.' values='Overwrite, Rename' def='Overwrite' />
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portImportProfiles" />
+  </rsb:script>
+
+</rsb:script>
+

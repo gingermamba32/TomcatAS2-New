@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Tue Jan 19 08:59:21 MST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0152-5a9c-a3c5-000002ea5d58 
+on database directory /Users/michaelmontero/rssbus/connect/db/app_logs  with class loader WebappClassLoader
+  context: 
+  delegate: false
+  repositories:
+----------> Parent Classloader:
+sun.misc.Launcher$AppClassLoader@3d4eac69
+ 
+Loaded from file:/Users/michaelmontero/Desktop/devcenter-webapp-runner/tomcat.8080/work/Tomcat/localhost/_/WEB-INF/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_65-b17
+user.dir=/Users/michaelmontero/Desktop/devcenter-webapp-runner
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

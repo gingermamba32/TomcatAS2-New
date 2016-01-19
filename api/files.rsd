@@ -1,0 +1,35 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+  
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+  
+  <rsb:info title="Files" description="Retrieves the unsent and received files for a port. NOTE: File contents will only be returned for GET requests for a specific file, using the second GET method with parenthesis defined below.">
+    <attr name="PortId"        type="string"   key="true" desc="The id of the port." />
+    <attr name="Folder"        type="string"   key="true" desc="The folder of the file." values="Send,Receive"/>
+    <attr name="Filename"      type="string"   key="true" desc="The name of the file." />
+    <attr name="MessageId"     type="string"   key="true" desc="The message id of the file. This will only have a value if the file is a message." />
+    <attr name="TimeCreated"   type="datetime"            desc="The time the file was created."/>
+    <attr name="FilePath"      type="string"              desc="The full path to the file." />
+    <attr name="FileSize"      type="ing"                 desc="The size of the file." />
+    <attr name="Content"       type="string"              desc="The Base64 encode file contents. This will only be returned when a specific file is requested." />
+
+    <input name="InputName" desc="The name of the form input when uploading files from a form."/>
+  </rsb:info>
+
+  <rsb:script method="GET">
+    <rsb:push op="portGetFiles" />
+  </rsb:script>
+
+  <rsb:script method="POST">
+    <rsb:set attr="Overwrite" value="false"/>
+    <rsb:push op="portSetFiles" />
+  </rsb:script>
+
+  <rsb:script method="PUT,MERGE,PATCH">
+    <rsb:set attr="Overwrite" value="true"/>
+    <rsb:push op="portSetFiles" />
+  </rsb:script>
+
+  <rsb:script method="DELETE">
+    <rsb:push op="portDeleteFiles" />
+  </rsb:script>
+</rsb:script>

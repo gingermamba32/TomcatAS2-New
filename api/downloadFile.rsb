@@ -1,0 +1,13 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="DownloadFile" description="Download files for this port.">
+    <input  name="PortId"           desc="The id of the port." required="true"/>
+    <input  name="File"             desc="The file to be downloaded. When file is not supplied, all files will be downloaded based on the port's settings."/>
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portDownloadFile" />
+  </rsb:script>
+</rsb:script>

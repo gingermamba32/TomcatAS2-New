@@ -1,0 +1,18 @@
+<rsb:script xmlns:rsb="http://www.rssbus.com/ns/rsbscript/2">
+
+  <rsb:restrict user="admin" role="rssbus_admin,Administrators"/>
+
+  <rsb:info title="ExchangeCert" description="Exchange the specified certificate.">
+    <input name='PortId'              desc='The port id.'                 required='true'/>
+    <input name='Certificate'         desc='The certificate to exchange.' required='true'/>
+    <input name='ExchangeType'        desc='The exchange type. Validate values are AS2(Request, Response), OFTP(Deliver, Request, Replace)'  required='true'/>
+    <input name="CertificatePassword" desc="The password of certificate(AS2)."/>
+    <input name="CertificateUsage"    desc="The cryptographic function(s) for the certificate. Validate values are 'Encryption,Verification,ServerTLS,ClientTLS'(AS2)."/>
+    <input name="ResponseURL"         desc="The URL which the response should be sent(AS2)."/>
+  </rsb:info>
+
+  <rsb:script method="POST">
+    <rsb:push op="portExchangeCertRequest"/>
+  </rsb:script>
+  
+</rsb:script>
